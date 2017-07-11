@@ -67,8 +67,6 @@ ul li:hover ul li   {
   display: block;
   position: relative; 
   overflow: hidden;
-  z-index: 1;
-  border: 1px;
 }
 ul li:hover ul li a  {
   text-decoration: none;
@@ -92,6 +90,45 @@ ul li:hover ul li a  {
   padding-right: 5%;
   padding-bottom: 1%;
 }
+table {
+    font-family: museo;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td, th {
+    border: 1px solid #3e5c7f;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+    text-align: right;
+}
+tr td{
+  text-align: center;
+}
+tr th{
+  text-align: center;
+}
+.anim{
+  animation-name: fadeIn;
+  animation-duration: 3s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 3s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+
+
+
+
+
+
+
 
 .fa fa-twitter{
   color: black;
@@ -138,8 +175,4 @@ footer a{
 
 
 }
-
-
-
- /* Dropdown Button */
  
