@@ -33,6 +33,47 @@ body {
     text-transform: uppercase;
     margin: 0 0 15px 0;
 }
+.fa-facebook:hover{
+  color:blue;
+  opacity: .5;
+  animation-name: flash;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-twitter:hover{
+  color:#3a5795;
+  opacity: .5;
+  animation-name: fadeIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-instagram:hover{
+  color:#892c22;
+  opacity: .5;
+  animation-name: bounceIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
 
 #main #side {
   font-family: museo;

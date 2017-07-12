@@ -47,6 +47,49 @@ body {
   color: white;
   font-family: museo;
 }
+
+.fa-facebook:hover{
+  color:blue;
+  opacity: .5;
+  animation-name: flash;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-twitter:hover{
+  color:#3a5795;
+  opacity: .5;
+  animation-name: fadeIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-instagram:hover{
+  color:#892c22;
+  opacity: .5;
+  animation-name: bounceIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
  ul li ul {
   display: block;
   position: relative;
@@ -114,20 +157,15 @@ tr th{
 }
 .anim{
   animation-name: fadeInDown  ;
-  animation-duration: 3s; 
+  animation-duration: 1s; 
   animation-timing-function: ease-out; 
   animation-delay: 3s;
   animation-direction: alternate;
   animation-iteration-count: 3;
   animation-fill-mode: none;
   animation-play-state: running;
+  margin-left: 20px;
 }
-
-
-
-
-
-
 
 
 .fa fa-twitter{
@@ -147,12 +185,6 @@ footer {
 footer a{
   color: white;
 }
-
-
-
-
-
-
 
 @media only screen and (max-width: 700px) {
     body {
@@ -177,8 +209,6 @@ footer a{
   background-color: 
   padding: 20px;
 }
-
-
 
 }
  

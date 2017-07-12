@@ -160,6 +160,77 @@ ul li:hover  ul li{
 .active{
   background-color: #29394D;
 }
+.anim{
+  animation-name: flash;
+  animation-duration: 6s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 6s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.anik{
+  animation-name: fadeIn;
+  animation-duration: 6s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 6s;
+  animation-direction: alternate;
+  animation-iteration-count: 2;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.anij{
+  animation-name: flash;
+  animation-duration: 4s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 2s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+}
+.fa-facebook:hover{
+  color:blue;
+  opacity: .5;
+  animation-name: flash;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-twitter:hover{
+  color:#3a5795;
+  opacity: .5;
+  animation-name: fadeIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
+
+.fa-instagram:hover{
+  color:#892c22;
+  opacity: .5;
+  animation-name: bounceIn;
+  animation-duration: 1s; 
+  animation-timing-function: ease-out; 
+  animation-delay: 1s;
+  animation-direction: alternate;
+  animation-iteration-count: 3;
+  animation-fill-mode: none;
+  animation-play-state: running;
+  border-radius: 5px;
+}
 body {
     back
     font-family: museo;
