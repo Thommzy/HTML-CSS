@@ -1,11 +1,26 @@
-<!DOCTYPE html>
+<?php  
+
+	include_once('includes/connection.php');
+	include_once('includes/article.php');
+
+	$article = new Article;
+
+	if(isset($_GET['id'])) {
+		// display the article
+		$id = $_GET['id'];
+		$data = $article->fetch_data($id);
+		?>
+
+
+		<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Timsport|Home Of Sports</title>
+	<title>Timsport|News</title>
 	<meta name="description" content="Timsport ">
 	<link rel="stylesheet" type="text/css" href="css/Timsport.css">
 	<link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/stylee.css">
 	<link rel="stylesheet" type="text/css" href="css/animate.css">
   	<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
@@ -27,15 +42,12 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 </head>
 <body>
-
 	<!-- Preloader Start -->
      <div class="preloader">
      <div class="rounder"></div>
       </div>
       <!-- Preloader End -->
-
-		<!-- Navbar -->
-<nav class="navbar">
+	<nav class="navbar">
 			<div class="navbar-header">
 			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#mainNavbar">
 				<span class="icon-bar"></span>
@@ -47,8 +59,8 @@
 
 		<div class="collapse navbar-collapse" id="mainNavbar" >
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Home</a></li>
-				<li><a href="news.html">News</a></li>
+				<li><a href="#">Home</a></li>
+				<li class="active"><a href="news.html">News</a></li>
 				<li><a href="predictions.html">Predictions</a></li>
 				<li><a href="transfer.html">Transfer</a></li>
 			</ul>
@@ -58,53 +70,21 @@
 				<a href="#"><i class="fa fa-instagram  fa-pull-right" style="color: #F28F4C; font-size: 30px; "  aria-hidden="true"></i></a>
 		</div>
 </nav> <!-- Navbar Ends -->
-<div class="container">
-	<div id="main" style="background-color: #c5cbce">	
 
-		<div class="row">
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_1.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_1.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_1.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-	</div>
-	
+	<h4><?php echo $data ['article_title'] ?>-
+		<small>
+			posted <?php echo date(' l <b>,</b> jS F Y', $data['article_timestamp']) ?>		
+		</small>
+	</h4>
 
-	<div class="row anik">
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_5.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_5.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_5.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-	</div>
+	<p>
+		<?php echo $data ['article_content']; ?>
+	</p>
 
-	<div class="row anij">
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_4.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_4.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-		<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-			<img src="images/football_4.jpg" class="img-responsive" style="margin-bottom:13px;">
-		</div>
-	</div>	
-	</div>
-	</div>
-</div>
+	<a href="index.php">&larr; Back</a>
 
-<footer>Copyright &copy; 2017<a href="#">Fansports.com</a></footer>
 
-	
-    <script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="js/plugin.js"></script>
     
     <!-- Main Javascript File  -->
     <script type="text/javascript" src="js/scripts.js"></script>
@@ -114,3 +94,11 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+		<?php 
+
+	} else {
+		header('Location: index.php');
+		exit();
+	}
+
+?>
