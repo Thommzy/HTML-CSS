@@ -1,3 +1,14 @@
+<?php  
+  include_once('includes/connection.php');
+  include_once('includes/article.php');
+
+  $article = new Article;
+  $articles = $article->fetch_all();
+
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -107,7 +118,18 @@
       </div>  
         
     </div><!--/Left Column-->
-  
+  <ol>
+    <?php foreach ($articles as $article) { ?>
+    <li>
+      <a href="article.php?id=<?php echo $article['article_id'];?>">
+        <?php echo $article['article_title']; ?>
+      </a>
+      -<small>
+        posted <?php echo date(' l <b> ,</b> jS F Y', $article['article_timestamp']) ?>
+      </small>
+    </li>
+    <?php } ?>
+  </ol>
   
     <!-- Center Column -->
     <div class="col-sm-6">
@@ -121,14 +143,22 @@
       <!-- Articles -->
       <div class="row">
         <article class="col-xs-12">
-          <h2>Premier League Transfers</h2>
+          <?php foreach ($articles as $article) { ?>
+          <h2>
+            <a href="article.php?id=<?php echo $article['article_id'];?>">
+              <?php echo $article['article_title'];?>
+            </a>
+          </h2>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
           quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
           consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-          <p><button class="btn btn-default">Read More</button></p>
+          <p><button class="btn btn-default">-<small>
+        posted <?php echo date(' l <b> ,</b> jS F Y', $article['article_timestamp']) ?>
+      </small></button></p>
+      <?php } ?>
           <p class="pull-right"><span class="label label-default">keyword</span> <span class="label label-default">tag</span> <span class="label label-default">post</span></p>
           <ul class="list-inline">
             <li><a href="#">Today</a></li>
