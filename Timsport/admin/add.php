@@ -1,31 +1,49 @@
 <?php  
-	include_once('includes/connection.php');
-	include_once('includes/article.php');
 
-	$article = new Article;
-	$articles = $article->fetch_all();
+session_start();
 
+include_once('../includes/connection.php');
 
+if (isset($_SESSION['logged_in'])) {
+	# display add Page section
 
-?>
+	if(isset($_POST['title'], $_POST['content'])) {
+		$title = $_POST ['title'];
+		$content = nl2br($_POST['content']);
 
+		if (empty($title) or empty($content)) {
+			$error = 'All fields are required!';
+		} else {
+			$query = $pdo->prepare('INSERT INTO articles (article_title, article_content, article_timestamp) VALUES (?, ?, ?)');
+
+			$query->bindValue(1, $title);
+			$query->bindValue(2, $content);
+			$query->bindValue(3, time());
+
+			$query-> execute();
+
+			header('Location: index.php');
+		}
+	}
+
+	?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Timsport|News</title>
+	<title>Timsport|Add Article</title>
 	<meta name="description" content="Timsport ">
-	<link rel="stylesheet" type="text/css" href="css/Timsport.css">
-	<link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/stylee.css">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<link rel="stylesheet" href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="../text/css" href="css/stylee.css">
+	<link rel="stylesheet" type="../text/css" href="css/animate.css">
   	<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.css">
     <link href="css/navbar-fixed-side.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="css/font/font.css">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/Timsport.css">
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/apple-touch-icon.png">
     
     <!-- All CSS Plugins -->
@@ -52,7 +70,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a href="Timsport.html" class="navbar-brand">FANSPORT</a>
+			<a href="Timsport.html" class="navbar-brand">TIMSPORT</a>
 		</div>
 
 		<div class="collapse navbar-collapse" id="mainNavbar" >
@@ -69,22 +87,18 @@
 		</div>
 </nav> <!-- Navbar Ends -->
 
-	<ol>
-		<?php foreach ($articles as $article) { ?>
-		<li>
-			<a href="article.php?id=<?php echo $article['article_id']; ?>">
-				<?php echo $article['article_title']; ?>
-			</a>
-			-<small>
-				posted <?php echo date(' l <b> ,</b> jS F Y', $article['article_timestamp']) ?>
-			</small>
-		</li>
-		<?php } ?>
-	</ol>
+    <h4>Add Article</h4>
 
-	<br />
+    <?php  if (isset($error)) { ?>
+     	<small style="color: #aa0000"><?php echo $error ?></small>
+     	<br /><br />
+     <?php } ?>
 
-	<small><a href="admin">Admin</a></small>
+    <form action="add.php" method="post" autocomplete="off">
+    	<input type="text" name="title" placeholder="Title" /><br /><br />
+    	<textarea rows="15" cols="50" placeholder="content" name="content"></textarea> <br /><br />
+    	<input type="submit" value="Add article" />
+    </form>
 
 
 	<script type="text/javascript" src="js/plugin.js"></script>
@@ -97,3 +111,10 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+	<?php
+
+} else{
+	header('Location: index.php');
+}
+
+?>

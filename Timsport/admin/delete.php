@@ -1,31 +1,44 @@
 <?php  
-	include_once('includes/connection.php');
-	include_once('includes/article.php');
 
-	$article = new Article;
+session_start();
+
+include_once('../includes/connection.php');
+include_once('../includes/article.php');
+
+$article = New Article;
+
+if (isset($_SESSION['logged_in'])) {
+
+	if (isset($_GET['id'])) {
+		$id = $_GET['id'];
+
+		$query = $pdo->prepare('DELETE from articles WHERE article_id = ?');
+		$query->bindValue(1, $id);
+		$query->execute();
+
+		header('Location: delete.php'); 
+	}
+
 	$articles = $article->fetch_all();
 
+	?>
 
-
-?>
-
-
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Timsport|News</title>
-	<meta name="description" content="Timsport ">
-	<link rel="stylesheet" type="text/css" href="css/Timsport.css">
-	<link rel="stylesheet" href="css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="css/stylee.css">
-	<link rel="stylesheet" type="text/css" href="css/animate.css">
+	<title>Timsport|Admin</title>
+	<meta name="description" content="Timsport">
+	<link rel="stylesheet" href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="../text/css" href="css/stylee.css">
+	<link rel="stylesheet" type="../text/css" href="css/animate.css">
   	<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
     <link href="css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/font-awesome/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.css">
     <link href="css/navbar-fixed-side.css" rel="stylesheet" />
-    <link rel="stylesheet" type="text/css" href="css/font/font.css">
-    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="stylesheet" type="text/css" href="../css/font/font.css">
+    <link rel="stylesheet" type="text/css" href="../css/Timsport.css">
+    <link rel="shortcut icon" href="../images/favicon/favicon.ico">
     <link rel="apple-touch-icon" sizes="144x144" type="image/x-icon" href="images/favicon/apple-touch-icon.png">
     
     <!-- All CSS Plugins -->
@@ -69,22 +82,21 @@
 		</div>
 </nav> <!-- Navbar Ends -->
 
-	<ol>
-		<?php foreach ($articles as $article) { ?>
-		<li>
-			<a href="article.php?id=<?php echo $article['article_id']; ?>">
-				<?php echo $article['article_title']; ?>
-			</a>
-			-<small>
-				posted <?php echo date(' l <b> ,</b> jS F Y', $article['article_timestamp']) ?>
-			</small>
-		</li>
-		<?php } ?>
-	</ol>
+   <br /><br />
 
-	<br />
+   <h4>Select an article to delete</h4>
 
-	<small><a href="admin">Admin</a></small>
+   <br /> <br />
+
+   <form action="delete.php" method="get">
+   		<select onchange="this.form.submit();" name="id">
+   			<?php foreach ($articles as $article) { ?>
+   				<option value="<?php echo $article['article_id']?>">
+   					<?php echo $article['article_title']; ?>
+   				</option>
+   			<?php } ?>
+   		</select>
+   </form>
 
 
 	<script type="text/javascript" src="js/plugin.js"></script>
@@ -97,3 +109,8 @@
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>
+	<?php  
+} else {
+	header('Location: index.php');
+}
+?>
