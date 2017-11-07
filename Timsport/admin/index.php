@@ -16,8 +16,8 @@ if (isset($_SESSION['logged_in'])) {
 	<link rel="stylesheet" href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="../text/css" href="css/stylee.css">
 	<link rel="stylesheet" type="../text/css" href="css/animate.css">
-  	<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+  	<script type="text/javascript" src="../layout/scripts/jquery.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.css">
     <link href="css/navbar-fixed-side.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/font/font.css">
@@ -73,10 +73,10 @@ if (isset($_SESSION['logged_in'])) {
     </ol>
 
 
-	<script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="../js/plugin.js"></script>
     
     <!-- Main Javascript File  -->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
@@ -131,8 +131,8 @@ if (isset($_SESSION['logged_in'])) {
 	<link rel="stylesheet" href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/stylee.css">
 	<link rel="stylesheet" type="text/css" href="../css/animate.css">
-  	<script type="text/javascript" src="layout/scripts/jquery.min.js"></script>
-    <link href="css/bootstrap.min.css" rel="stylesheet" />
+  	<script type="text/javascript" src="../layout/scripts/jquery.min.js"></script>
+    <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.css">
     <link href="css/navbar-fixed-side.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/font/font.css">
@@ -168,8 +168,8 @@ if (isset($_SESSION['logged_in'])) {
 
 		<div class="collapse navbar-collapse" id="mainNavbar" >
 			<ul class="nav navbar-nav">
-				<li><a href="#">Home</a></li>
-				<li class="active"><a href="news.html">News</a></li>
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="news.html">News</a></li>
 				<li><a href="predictions.html">Predictions</a></li>
 				<li><a href="transfer.html">Transfer</a></li>
 			</ul>
@@ -190,18 +190,25 @@ if (isset($_SESSION['logged_in'])) {
      
 
 
-	<form action="index.php" method="post" autocomplete="off">
-		<input type="text" name="username" placeholder="Username" />
-		<input type="password" name="password" placeholder="password" />
-		<input type="submit" name="Login" />
-		
-	</form>
+	<div class="container">
+		<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<form action="index.php" method="post" autocomplete="off">
+				<input type="text" name="username" placeholder="Username" />
+				<input type="password" name="password" placeholder="password" />
+				<input type="submit" name="Login" />
+			</form>
+		</div>
+		<div class="col-md-3"></div>
+	</div>
+	</div>
 
 
-	<script type="text/javascript" src="js/plugin.js"></script>
+	<script type="text/javascript" src="../js/plugin.js"></script>
     
     <!-- Main Javascript File  -->
-    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="../js/scripts.js"></script>
 
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 		<!-- Latest compiled and minified JavaScript -->
