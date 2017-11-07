@@ -150,7 +150,7 @@ if (isset($_SESSION['logged_in'])) {
 		<!-- Optional theme -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
 </head>
-<body>
+<body style="background-color:#00567A">
 	<!-- Preloader Start -->
      <div class="preloader">
      <div class="rounder"></div>
@@ -182,25 +182,30 @@ if (isset($_SESSION['logged_in'])) {
 
      <br /><br />
 
-     <?php  if (isset($error)) { ?>
-     	<small style="color: #aa0000"><?php echo $error ?></small>
-     	<br /><br />
-     <?php } ?>
+     
 
      
 
 
 	<div class="container">
 		<div class="row">
-		<div class="col-md-3"></div>
-		<div class="col-md-6">
+		<div class="col-md-3">
+			<img class="img-responsive" src="../img/admin_login_1" alt="Cristiano_ronaldo">
+		</div>
+		<div class="col-md-6 col-sm-9">
+			<?php  if (isset($error)) { ?>
+     	<h3 style="color: #aa0000;" ><?php echo $error ?></h3>
+     	<br /><br />
+     <?php } ?>
 			<form action="index.php" method="post" autocomplete="off">
-				<input type="text" name="username" placeholder="Username" />
-				<input type="password" name="password" placeholder="password" />
-				<input type="submit" name="Login" />
+				<p style="color: white">Username : <input type="text" name="username" placeholder="Username" /><br /></p>
+				<p style="color: white">Password : <input type="password" name="password" placeholder="password" /><br /></p>
+				          <input type="submit" name="Login" />
 			</form>
 		</div>
-		<div class="col-md-3"></div>
+		<div class="col-md-3">
+			<img class="img-responsive" src="../img/admin_login_1" alt="Cristiano_ronaldo">
+		</div>
 	</div>
 	</div>
 
