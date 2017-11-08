@@ -126,12 +126,15 @@ if (isset($_SESSION['logged_in'])) {
 <head>
 	<meta charset="utf-8">
 	<title>Timsport|Admin</title>
+
 	<meta name="description" content="Timsport ">
 	<link rel="stylesheet" type="text/css" href="../css/Timsport.css">
 	<link rel="stylesheet" href="../css/bootstrap-3.3.7-dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../css/stylee.css">
 	<link rel="stylesheet" type="text/css" href="../css/animate.css">
+	<link rel="stylesheet" type="text/css" href="../css/ninja-slider.css">
   	<script type="text/javascript" src="../layout/scripts/jquery.min.js"></script>
+  	<script type="text/javascript" src="../js/ninja-slider.js"></script>
     <link href="../css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../css/font-awesome/css/font-awesome.css">
     <link href="css/navbar-fixed-side.css" rel="stylesheet" />
@@ -184,29 +187,76 @@ if (isset($_SESSION['logged_in'])) {
 
      
 
-     
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img class="img-responsive" src="../img/admin_login_1" alt="Cristiano_ronaldo">
+			</div>
 
+			<div class="col-md-6 col-sm-9" style="margin-top: 10px;">
+				<?php  if (isset($error)) { ?>
+	     			<h3 style="color: #aa0000;" ><?php echo $error ?></h3>
+	     				<br /><br />
+	     		<?php } ?>
+				<form action="index.php" method="post" autocomplete="off">
+					<p style="color: white">Username : <input type="text" name="username" placeholder="Username" /><br /></p>
+					<p style="color: white">Password : <input type="password" name="password" placeholder="password" /><br /></p>
+					<input type="submit" name="Login" />
+				</form>
+			</div>
+
+			<div class="col-md-3">
+				<img class="img-responsive" src="../img/messi.jpg" alt="Lionel_Messi">
+			</div>
+
+		</div>
+	</div>
 
 	<div class="container">
 		<div class="row">
-		<div class="col-md-3">
-			<img class="img-responsive" src="../img/admin_login_1" alt="Cristiano_ronaldo">
+			<div class="col-md-12">
+				 <!--start-->
+    <div id="bg-asset"></div>
+    <div id="ninja-slider">
+        <div class="slider-inner">
+            <ul>
+                <li>
+                    <div class="content">
+                        <img src="../img/admin_landing.jpg" />
+                        <h3>Welcome To Timsport</h3>
+                        <p>Home of Sport Prediction</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="content">
+                        <img src="../img/landing_admin_1.jpg" />
+                        <h3>Accurate Sport Predictions</h3>
+                        
+                    </div>
+                </li>
+                <li>
+                    <div class="content">
+                        <img src="../img/responsive.png" />
+                        <h3><i>Latest news</i>Latest news</h3>
+                        <p>Across the whole world</p>
+                    </div>
+                </li>
+                <!-- <li>
+                    <div class="content">
+                        <img src="../img/browser-support.png" />
+                        <h3>Mobile Friendly</h3>
+                        <p>The Carousel is compatible with mobile platforms like iphone/ipad.</p>
+                    </div>
+                </li> -->
+            </ul>
+            <div class="fs-icon" title="Expand/Close"></div>
+        </div>
+    </div>
+    <!--end-->
+    <p>&nbsp;</p>
+</body>
+			</div>
 		</div>
-		<div class="col-md-6 col-sm-9">
-			<?php  if (isset($error)) { ?>
-     	<h3 style="color: #aa0000;" ><?php echo $error ?></h3>
-     	<br /><br />
-     <?php } ?>
-			<form action="index.php" method="post" autocomplete="off">
-				<p style="color: white">Username : <input type="text" name="username" placeholder="Username" /><br /></p>
-				<p style="color: white">Password : <input type="password" name="password" placeholder="password" /><br /></p>
-				          <input type="submit" name="Login" />
-			</form>
-		</div>
-		<div class="col-md-3">
-			<img class="img-responsive" src="../img/admin_login_1" alt="Cristiano_ronaldo">
-		</div>
-	</div>
 	</div>
 
 
